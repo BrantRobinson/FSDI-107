@@ -1,11 +1,10 @@
 .App {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .main-content {
-  flex: 1; /* Ensures this area grows to push the footer down */
+  flex: 1; 
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;

@@ -1,30 +1,31 @@
-import './Navbar.css'
+import "./Navbar.css";
 
 function Navbar() {
   return (
-    <nav className="navbar">
-        <div className="navbar-container">
-            <div className="navbar-brand">
-                <h1>My Online Store</h1>
-            </div>
-            <div className="navbar-menu">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <a href="#home">Home</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#catalog">Catalog</a>
-                    </li>
-                    <li className="nav-item">
-                        <a href="#about">About</a>
-                    </li>
-                </ul>
-            </div>
+    <>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">My Online Store</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Catalog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-  )
+      </nav>
+    </>
+  );
 }
 
-export default Navbar
-
-
+export default Navbar;

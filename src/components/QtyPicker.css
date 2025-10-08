@@ -1,5 +1,17 @@
-/* .picker {
-    display: grid;
-    grid-template-columns: 25px 50px 25px;
-    justify-content: center;
-} */
+.picker {
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  border: none;
+  background: none;
+  font-size: large;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+button:active {
+  opacity: 0.1;
+  transform: scale(0.8);
+}
