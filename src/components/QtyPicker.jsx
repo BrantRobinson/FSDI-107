@@ -3,23 +3,19 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePlus, faSquareMinus } from "@fortawesome/free-regular-svg-icons";
 
-function QuantityPicker() {
+function QuantityPicker(props) {
   const [quantity, setQuantity] = useState(0);
 
   function decrease() {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    } else {
-      setQuantity(0);
-    }
+    const newQty = quantity > 0 ? quantity - 1 : 0;
+    setQuantity(newQty);
+    props.onChange(newQty);
   }
 
   function increase() {
-    if (quantity < 99) {
-      setQuantity(quantity + 1);
-    } else {
-      setQuantity(99);
-    }
+    const newQty = quantity < 99 ? quantity + 1 : 99;
+    setQuantity(newQty);
+    props.onChange(newQty);
   }
 
   return (

@@ -3,7 +3,11 @@ import { useState } from "react";
 import QuantityPicker from "./QtyPicker";
 
 function Product(props) {
-  const [total, updateTotal] = useState(0);
+  const [total, setTotal] = useState(0);
+
+   function handleQuantityChange(newQty) {
+    setTotal(newQty * props.data.price);
+  }
 
   return (
     <div className="product-outline">
@@ -13,9 +17,10 @@ function Product(props) {
               <h3>{props.data.title}</h3>
               <div className="prices">
                 <div>Price ${props.data.price}</div>
-                <div>Total ${total}</div>
+                <div>Total ${total.toFixed(2)}</div>
               </div>
-              <QuantityPicker />
+              <QuantityPicker onChange={handleQuantityChange}/>
+              <button className="addButton">Add</button>
             </div>
         </div>
     </div>

@@ -9,3 +9,32 @@ h1 {
     justify-content: center;
     margin: 1rem 0;
 }
+
+.catButton {
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+
+.catButton:hover {
+    background-color: grey;
+    color: white;
+}
+
+.catButton.active {
+  background-color: grey;
+  color: white;
+  transform: scale(1.05);
+}
+
+.heading-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.categories {
+    display: flex;
+    gap: .2rem;
+    flex-wrap: wrap;
+}

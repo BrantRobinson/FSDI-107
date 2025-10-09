@@ -21,7 +21,7 @@ const catalog = [
         "_id": "3"
     },
     {
-        "title": "Pocket Protectors",
+        "title": "Pocket Protector",
         "category": "Clothing",
         "price": 9.99,
         "image": "pocketProtectorsCOHORT61.png",

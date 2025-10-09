@@ -1,29 +1,70 @@
-import Footer from "../components/Footer"
-import Navbar from "../components/Navbar"
-import Product from "../components/Product"
-import './Catalog.css'
-import '../services/dataService'
-import { useEffect, useState } from "react"
-import DataService from "../services/dataService"
+import Product from "../components/Product";
+import "./Catalog.css";
+import { useEffect, useState } from "react";
+import DataService from "../services/dataService";
 
 function Catalog() {
-    const [product, setProduct] = useState ([])
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("All"); 
 
-    useEffect(() => {
-        let service = new DataService()
-        let data = service.getProducts()
-        setProduct(data)
-        console.log(product)
-    },[])
+  function loadCategories(data) {
+    const cats = [...new Set(data.map(p => p.category))];
+    setCategories(cats);
+  }
 
-    return (
-        <div className="catalog">
-        <h1>Check Out Our Amazing Products</h1>
-        <div className="product-list">
-            {product.map(prod => <Product key={prod._id} data={prod}/>)}
+  function filter(cat) {
+    setActiveCategory(cat); 
+    if (cat === "All") {
+      setFilteredProducts(products);
+    } else {
+      const list = products.filter(p => p.category === cat);
+      setFilteredProducts(list);
+    }
+  }
+
+  useEffect(() => {
+    let service = new DataService();
+    let data = service.getProducts();
+
+    setProducts(data);
+    setFilteredProducts(data);
+    loadCategories(data);
+  }, []);
+
+  return (
+    <div className="catalog">
+      <div className="heading-container">
+        <h1>Check Out Our {products.length} Amazing Products</h1>
+
+        <div className="categories">
+          <button
+            className={`catButton ${activeCategory === "All" ? "active" : ""}`}
+            onClick={() => filter("All")}
+          >
+            All
+          </button>
+
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => filter(cat)}
+              className={`catButton ${activeCategory === cat ? "active" : ""}`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
-        </div>
-    )
+      </div>
+
+      <div className="product-list">
+        {filteredProducts.map((prod) => (
+          <Product key={prod._id} data={prod} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default Catalog
+export default Catalog;
