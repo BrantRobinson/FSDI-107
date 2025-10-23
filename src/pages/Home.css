@@ -1,0 +1,28 @@
+
+.hero-slide {
+  background: #f9f9f9;
+  min-height: 80vh;
+  color: #222;
+}
+.hero-slide h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.hero-slide p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-highlight img {
+  border-radius: 12px;
+}
+.product-highlight .card-body {
+  text-align: center;
+}
+.product-highlight h4 {
+  font-weight: 600;
+}
+
+.carousel-inner {
+    border-radius: 10px;
+}

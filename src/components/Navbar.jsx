@@ -1,24 +1,32 @@
+import { Link } from "react-router-dom";
 import "./Navbar.css";
+
 
 function Navbar() {
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">My Online Store</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg custom-navbar">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">My Online Store</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Home</a>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li className="nav-item">
+                <Link className="nav-link" aria-current="page" to={"/"}>Home</Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Catalog</a>
+              <li className="nav-item">
+                <Link className="nav-link" to={"./catalog"}>Catalog</Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+              <li className="nav-item">
+                <Link className="nav-link" to={"./about"}>About</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"./contact"}>Contact</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"./admin"}>Admin</Link>
               </li>
             </ul>
           </div>
