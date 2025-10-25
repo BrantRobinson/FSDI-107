@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
 import { useContext } from "react";
+
+import { Link } from "react-router-dom";
 
 import GlobalContext from "../state/GlobalContext";
 
@@ -33,11 +34,11 @@ function Navbar() {
               <li className="nav-item">
                 <Link className="nav-link" to={"./contact"}>Contact</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item me-3">
                 <Link className="nav-link" to={"./admin"}>Admin</Link>
               </li>
             </ul>
-            <span className="ms-3 text-white">
+            <span className="text-white">
             Welcome, {user.name}!
             </span>
           </div>
