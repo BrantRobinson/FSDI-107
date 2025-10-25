@@ -88,11 +88,23 @@ function Admin() {
                             </div>
                         </div>
                     </div>
-                    {products.map((product, index) => (
-                        <p key={index}>
-                            {product.title} - {product.category} - {product.image} - {product.price}
-                        </p>   
-                    ))}
+                    <div className="row mt-3">
+                        {products.map((product, index) => (
+                            <div key={index} className="col-md-4 mb-3">
+                                <div className="card h-100 shadow-sm">
+                                    <div>
+                                        <img src={product.image} className="card-img-top card-image"/>
+                                        <p className="category">{product.category}</p>
+                                    </div>
+
+                                    <div className="card-body">
+                                        <h5 className="card-title">{product.title}</h5>
+                                        <p className="card-text fw-bold">${(product.price / 100).toFixed(2)}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </section>
 
                 <section className='w-50'>
