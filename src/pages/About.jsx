@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useContext } from 'react';
 
+import { IconMail } from '@tabler/icons-react';
+
 import GlobalContext from '../state/GlobalContext';
 
 import './About.css';
@@ -26,7 +28,7 @@ function About() {
   return (
     <div className="main-content">
         <h1>About Page</h1>
-        <p>ID: {user.id}, name: {user.name}, cohort: {user.cohort}</p>
+        <p>ID: {user.id}, Name: {user.name}, Cohort: {user.cohort}</p>
 
         {
           isEmailVisible 
@@ -39,9 +41,10 @@ function About() {
         <button 
           className='btn btn-dark' 
           onClick={() => setIsEmailVIsible(!isEmailVisible)}>
+          <IconMail stroke={2} />
           {isEmailVisible 
-            ? 'Hide Email' 
-            : 'Show Email'}
+            ? ' Hide Email' 
+            : ' Show Email'}
         </button>
 
     </div>
