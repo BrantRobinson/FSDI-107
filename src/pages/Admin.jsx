@@ -92,7 +92,7 @@ function Admin() {
                         {products.map((product, index) => (
                             <div key={index} className="col-md-4 mb-3">
                                 <div className="card h-100 shadow-sm">
-                                    <div>
+                                    <div className='image-wrapper'>
                                         <img src={product.image} className="card-img-top card-image"/>
                                         <p className="category">{product.category}</p>
                                     </div>

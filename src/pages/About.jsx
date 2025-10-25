@@ -1,8 +1,15 @@
 import { useState } from 'react';
+import { useContext } from 'react';
+
+import GlobalContext from '../state/GlobalContext';
+
 import './About.css';
+
+
 
 function About() {
   const [isEmailVisible, setIsEmailVIsible] = useState(true)
+  const user = useContext(GlobalContext).user
 
   // function hideEmailInformation() {
   //   console.log("Clicking hide email")
@@ -19,6 +26,7 @@ function About() {
   return (
     <div className="main-content">
         <h1>About Page</h1>
+        <p>ID: {user.id}, name: {user.name}, cohort: {user.cohort}</p>
 
         {
           isEmailVisible 
