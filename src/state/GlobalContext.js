@@ -7,7 +7,8 @@ const GlobalContext = createContext({
 
     addProductToCart: () => {}, //function to add items to the cart
     clearCart: () => {}, // function to clear the cart
-    removeProductFromCart: () => {} // function to remove a specific item from the cart
+    removeProductFromCart: () => {}, // function to remove a specific item from the cart
+    updateProductQuantity: () => {} // function to update the quantity of a product in the cart
 })
 
 export default GlobalContext // export so that it can be used in other components

@@ -12,10 +12,12 @@ import NotFound from './pages/NotFound'
 
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
+import Cart from './components/Cart'
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 
 
@@ -34,6 +36,7 @@ function App() {
             <Route path='/about' element={<About />}></Route>
             <Route path='/contact' element={<Contact />}></Route>
             <Route path='/admin' element={<Admin />}></Route>
+            <Route path='/cart' element={<Cart />}></Route>
             {/* <Route path='*' element={<Navigate to='/' replace />}></Route> */}
             <Route path='*' element={<NotFound />}></Route>
           </Routes>

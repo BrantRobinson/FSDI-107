@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquarePlus, faSquareMinus } from "@fortawesome/free-regular-svg-icons";
 
 function QuantityPicker(props) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(props.initialQuantity || 1);
 
   function decrease() {
     const newQty = quantity > 0 ? quantity - 1 : 0;

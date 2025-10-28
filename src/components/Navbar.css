@@ -26,3 +26,9 @@
 .navbar .nav-link:hover {
   color: #f8d210 !important;
 }
+
+a[href="/cart"] {
+  text-decoration: none !important;
+}
+
+

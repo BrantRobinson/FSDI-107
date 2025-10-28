@@ -16,9 +16,19 @@ function GlobalProvider(props) {
     }
 
     function removeProductFromCart(prodId) {
-        const updatedCart = cart.filter(item => item.id != prodId) // filter keeps products that match the condition (i.e. not equal to the id you want to remove)
+        console.log("ID" + prodId)
+        const updatedCart = cart.filter(item => item._id != prodId) // filter keeps products that match the condition (i.e. not equal to the id you want to remove)
         setCart(updatedCart) 
-    
+    }
+
+    function updateProductQuantity(prodId, newQty) {
+        const updatedCart = cart.map(item => {
+            if (item._id === prodId) {
+                return { ...item, qty: newQty };
+            }
+            return item;
+        });
+        setCart(updatedCart);
     }
 
     return (
@@ -27,7 +37,8 @@ function GlobalProvider(props) {
             user: user,
             addProductToCart: addProductToCart,
             clearCart: clearCart,
-            removeProductFromCart: removeProductFromCart
+            removeProductFromCart: removeProductFromCart,
+            updateProductQuantity: updateProductQuantity
         }}>
 
         {props.children} {/* render any child components inside the provider*/}
