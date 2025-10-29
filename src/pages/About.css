@@ -1,0 +1,14 @@
+/* Keep styles simple and consistent with Home */
+.profile-img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+}
+
+.info-card {
+  border-radius: 12px;
+}
+
+.muted {
+  color: #6c757d;
+}

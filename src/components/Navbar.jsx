@@ -44,22 +44,22 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"./catalog"}>
+                <Link className="nav-link" to={"/catalog"}>
                   Catalog
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"./about"}>
+                <Link className="nav-link" to={"/about"}>
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"./contact"}>
+                <Link className="nav-link" to={"/contact"}>
                   Contact
                 </Link>
               </li>
               <li className="nav-item me-3">
-                <Link className="nav-link" to={"./admin"}>
+                <Link className="nav-link" to={"/admin"}>
                   Admin
                 </Link>
               </li>
