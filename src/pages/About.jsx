@@ -24,20 +24,13 @@ function About() {
           <div className="col-md-7">
             <div className="card border-0 shadow-sm info-card">
               <div className="card-body">
-                <h4 className="card-title mb-2">Hello! I’m {user.name}</h4>
+                <h4 className="card-title mb-2">Hello! I'm {user.name}</h4>
                 <p className="text-muted mb-3">
                   ID: {user.id} • Cohort: {user.cohort}
                 </p>
 
                 <p className="mb-3">
-                  Cohort 61 Supply started as a tiny stash for our nerdiest
-                  inside jokes, late-night debugging snacks, and small wins.
-                  Now we curate gear for study sessions, game nights, and
-                  victory sprints.
-                </p>
-                <p className="mb-3">
-                  From stickers and mugs to comfy tees, every item nods to the
-                  legends of C61. If you know, you know.
+                  Welcome to my nerdy store.  
                 </p>
 
                 {isEmailVisible ? (
