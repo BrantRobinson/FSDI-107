@@ -1,40 +1,78 @@
-.catalog h1 {
-    text-align: center;
+:root {
+  --bg: #0b0f14;
+  --panel: #121826;
+  --muted: #8b94a3;
+  --text: #e6edf3;
+  --accent: #00ff88;
+  --accent-2: #00e5ff;
+  --chip-bg: #1f2937;
+  --chip-active: #00c2ff;
 }
 
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    margin: 1rem 0;
-}
-
-.catButton {
-    border: 1px solid grey;
-    border-radius: 5px;
-    background-color: lightgrey;
-}
-
-.catButton:hover {
-    background-color: grey;
-    color: white;
-}
-
-.catButton.active {
-  background-color: grey;
-  color: white;
-  transform: scale(1.05);
+.catalog {
+  background: linear-gradient(180deg, var(--bg) 0%, #0b1020 100%);
+  min-height: 100vh;
+  color: var(--text);
+  padding-bottom: 24px;
 }
 
 .heading-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px auto 8px;
+  max-width: 1100px;
+  padding: 0 4px;
+}
+.section-title {
+  font-weight: 700;
+  margin: 0;
+}
+.view-all {
+  color: var(--muted);
+  text-decoration: none;
+}
+.view-all:hover {
+  color: var(--accent);
 }
 
-.categories {
-    display: flex;
-    gap: .2rem;
-    flex-wrap: wrap;
+.categories-strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 6px 0;
+  margin: 0 auto 8px;
+  max-width: 1100px;
+}
+.catChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--chip-bg);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease,
+    color 0.2s ease;
+  white-space: nowrap;
+}
+.catChip:hover {
+  transform: translateY(-1px);
+  color: var(--accent);
+  border-color: rgba(0, 229, 255, 0.35);
+}
+.catChip.active {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+  color: #0b1020;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  max-width: 1100px;
+  margin: 12px auto 0;
+  padding: 0 6px;
 }

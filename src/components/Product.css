@@ -1,30 +1,29 @@
 .product {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .product-card {
-    padding: 1rem;
-    background-color: rgb(233, 233, 233);
-    border-radius: 1rem;
+  padding: 1rem;
+  background-color: rgb(233, 233, 233);
+  border-radius: 1rem;
 }
 
 .product-outline {
-    padding: .5rem;
-    background-color: rgb(207, 207, 207);
-    width: 270px;
-
+  padding: 0.5rem;
+  background-color: rgb(207, 207, 207);
+  width: 270px;
 }
 
 img {
-    width: 200px;
+  width: 200px;
 }
 
 .prices {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .product-outline {
@@ -39,12 +38,150 @@ img {
 }
 
 .addButton {
-    border: 1px solid grey;
-    border-radius: 5px;
-    background-color: lightgrey;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: lightgrey;
 }
 
 .addButton:hover {
-    background-color: grey;
-    color: white;
+  background-color: grey;
+  color: white;
+}
+
+.catalog .product-card {
+  position: relative;
+  padding: 1rem;
+  background-color: var(--panel, #161b22);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.catalog .product-outline {
+  padding: 0.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 229, 255, 0.18),
+    rgba(167, 139, 250, 0.18)
+  );
+  border-radius: 18px;
+  width: 270px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.catalog .product-outline:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 229, 255, 0.15);
+}
+
+.catalog .product-image {
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #0f172a;
+}
+.catalog .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.catalog .prices {
+  display: flex;
+  gap: 1rem;
+  color: var(--text, #e6edf3);
+}
+
+.catalog .product-actions {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  background: rgba(13, 17, 23, 0.85);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.catalog .product-outline:hover .product-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.catalog .addButton {
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    var(--accent, #00e5ff),
+    var(--accent-2, #a78bfa)
+  );
+  color: #0b1020;
+  padding: 0 8px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 28px;
+  border-width: 1px;
+  min-width: auto;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.catalog .addButton:hover {
+  filter: brightness(1.1);
+}
+
+@keyframes btn-pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.92);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes btn-ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(0, 229, 255, 0);
+  }
+}
+.catalog .addButton.clicked {
+  animation: btn-pulse 280ms ease-out;
+}
+.catalog .addButton.clicked::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  animation: btn-ripple 450ms ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .catalog .product-actions {
+    position: static;
+    opacity: 1;
+    transform: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-top: 6px;
+  }
 }

@@ -1,7 +1,20 @@
 import Product from "../components/Product";
 import "./Catalog.css";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import DataService from "../services/dataService";
+import {
+  IconApps,
+  IconHeadphones,
+  IconHome2,
+  IconShirt,
+  IconPaw,
+  IconBackpack,
+  IconBarbell,
+  IconSunglasses,
+  IconDeviceLaptop,
+  IconCamera,
+  IconBolt
+} from "@tabler/icons-react";
 
 function Catalog() {
   const [products, setProducts] = useState([]);
@@ -33,32 +46,54 @@ function Catalog() {
     loadCategories(data);
   }, []);
 
+  const catIcon = useMemo(() => ({
+    Electronics: IconHeadphones,
+    Home: IconHome2,
+    Clothing: IconShirt,
+    Pets: IconPaw,
+    Outdoors: IconBackpack,
+    Fitness: IconBarbell,
+    Accessories: IconSunglasses,
+    Office: IconDeviceLaptop,
+    Cameras: IconCamera,
+  }), []);
+
   return (
     <div className="catalog">
-      <div className="heading-container">
-        <h1>Check Out Our {products.length} Amazing Products</h1>
-
-        <div className="categories">
-          <button
-            className={`catButton ${activeCategory === "All" ? "active" : ""}`}
-            onClick={() => filter("All")}
-          >
-            All
-          </button>
-
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => filter(cat)}
-              className={`catButton ${activeCategory === cat ? "active" : ""}`}
-            >
-              {cat}
-            </button>
-          ))}
+      <div className="hero" style={{display: "none"}}>
+        <div className="hero-content">
+          <div className="hero-eyebrow">Hi, Shopper <span className="wave">👋</span></div>
+          <h1 className="hero-title">Shop the New <span className="accent">Nerd Gear</span></h1>
+          <p className="hero-sub">Special deal: <IconBolt size={18}/> 30% off select items</p>
         </div>
       </div>
 
-      <div className="product-list">
+      <div className="categories-strip">
+        <button
+          className={`catChip ${activeCategory === "All" ? "active" : ""}`}
+          onClick={() => filter("All")}
+        >
+          <IconApps size={20} />
+          <span>All</span>
+        </button>
+
+        {categories.map((cat) => {
+          const Icon = catIcon[cat] || IconApps;
+          return (
+            <button
+              key={cat}
+              onClick={() => filter(cat)}
+              className={`catChip ${activeCategory === cat ? "active" : ""}`}
+              title={cat}
+            >
+              <Icon size={20} />
+              <span>{cat}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div id="products" className="product-list">
         {filteredProducts.map((prod) => (
           <Product key={prod._id} data={prod} />
         ))}

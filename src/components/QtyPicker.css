@@ -1,17 +1,53 @@
 .picker {
-  width: 90px;
+  width: auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
 }
 
-button {
-  border: none;
-  background: none;
-  font-size: large;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+.picker button {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f2f2f2;
+  color: #222;
+  font-size: 16px;
+  line-height: 1;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease,
+    background 0.2s ease, color 0.2s ease;
 }
 
-button:active {
-  opacity: 0.1;
-  transform: scale(0.8);
+.picker button:hover {
+  filter: brightness(0.95);
+}
+.picker button:active {
+  opacity: 0.85;
+  transform: scale(0.94);
+}
+
+.catalog .picker button {
+  border: 1px solid rgba(0, 229, 255, 0.35);
+  background: linear-gradient(
+    90deg,
+    var(--accent, #00ff88),
+    var(--accent-2, #00e5ff)
+  );
+  color: #0b1020;
+}
+
+.catalog .picker .btnDecrease,
+.catalog .picker .btnIncrease {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.picker label {
+  min-width: 22px;
+  text-align: center;
+  font-weight: 700;
 }
